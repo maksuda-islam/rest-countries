@@ -74,7 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ---how to add gh-pages
 
 
-# Deploying a React App* to GitHub Pages which I got from a blog------------------
+# Deploying a React App* using GitHub Pages which I got from a blog------------------
 
 \* created using `create-react-app`
 
