@@ -74,7 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ---how to add gh-pages
 
 
-# Deploying a React App* to GitHub Pages which I got from a blog------------------
+# Deploying a React App* using GitHub Pages which I got from a blog------------------
 
 \* created using `create-react-app`
 
@@ -82,7 +82,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 In this tutorial, I'll show you how I deployed a React app—which I created using `create-react-app`—to GitHub Pages.
 
-You can visit the deployed app, at [https://gitname.github.io/react-gh-pages/](https://gitname.github.io/react-gh-pages/).
 
 This repository contains the files related to the app. The `master` branch contains the app's source code (the code the app's developers edit), and the `gh-pages` branch contains a *built* version of the app (i.e. the code that GitHub Pages serves to the app's visitors).
 
