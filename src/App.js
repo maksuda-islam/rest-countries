@@ -15,9 +15,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     flexGrow: 1,
   },
@@ -48,7 +45,7 @@ function App() {
     <div> 
       <ThemeProvider theme={theme}>
       <CssBaseline/>
-      <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
+      <AppBar position="static" style={{ background: 'transparent', marginBottom: 30}}>
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
           Where in the world?
