@@ -13,16 +13,15 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 const url = 'https://restcountries.eu/rest/v2/all';
 
-const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-      marginBottom:20,
-    },
-    media: {
-      height: 140,
-    //   backgroundColor: '#dddddd',
-    },
-  });
+const useStyles = makeStyles(theme => ({
+  root: {
+      flexGrow: 1,
+      padding: theme.spacing(2)
+  },
+  media: {
+    height: 200,
+  }
+}))
 
 const Countries = () => {
     const [countries, setCountries] = useState([])
@@ -38,19 +37,20 @@ const Countries = () => {
           fetchCountryData()
      }, [])
     return (
-        <div>
-            {countries.map((country) => {
-                const{numericCode, flag, name, population, region, capital} = country
-
-                return <article key={numericCode}>
-                    <Card className={classes.root}>
-                    <Grid
+        <div className={classes.root}>
+           <Grid
                 container
                 spacing={2}
                 direction="row"
                 justify="flex-start"
                 alignItems="flex-start"
             >
+            {countries.map((country) => {
+                const{numericCode, flag, name, population, region, capital} = country
+
+                return <Grid item xs={12} sm={6} md={3} key={numericCode}>
+                    <Card >
+                   
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -76,10 +76,11 @@ const Countries = () => {
           Learn More
         </Button> */}
       </CardActions>
-      </Grid>
+   
     </Card>
-                </article>
+                </Grid>
             })}
+      </Grid>
             
         </div>
     )

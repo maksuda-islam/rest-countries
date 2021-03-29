@@ -4,10 +4,12 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+const url ="https://restcountries.eu/rest/v2/region/"
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
-      marginLeft: 900,
-      minWidth: 220,
+      marginLeft: 700,
+      minWidth: 200,
       minHeight: 50,
       marginBottom:20,
 
@@ -44,10 +46,10 @@ const Filter = () => {
             id: 'outlined-age-native-simple',
           }}
         >
-          <option aria-label="None" value="" />
+          {/* <option aria-label="All" value="" />
           <option value={10}>Ten</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option>
+          <option value={20}>Twenty</option> */}
+          {/* <option>{url}</option> */}
         </Select>
       </FormControl>
         </div>
