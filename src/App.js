@@ -13,14 +13,18 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    padding: 30,
+    
+  },
+  paper:{
     marginBottom: 30,
   },
   flex: {
     display: 'flex',
+    justifyContent: 'space-between',
   },
-  media: {
-    marginLeft: 850,
-
+  toolbar:{
+    justifyContent: 'space-between',
   }
 }));
 
@@ -46,15 +50,15 @@ function App() {
   
   return (
     
-    <div> 
+    <div className={classes.root}> 
       <ThemeProvider theme={theme}>
       <CssBaseline/>
-      <Paper position="static" className={classes.root}>
-        <Toolbar>
+      <Paper position="static" className={classes.paper}>
+        <Toolbar className={classes.toolbar}>
         <Typography variant="h5">
           Where in the world?
           </Typography>
-          <Button onClick={handleDarkModeToggle} className={classes.media}>Dark Mode
+          <Button onClick={handleDarkModeToggle}>Dark Mode
           </Button>
         </Toolbar>
       </Paper >

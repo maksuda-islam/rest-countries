@@ -1,26 +1,16 @@
-import axios from "axios";
+import React,{useEffect, useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+const url = 'https://restcountries.eu/rest/v2/all';
 
-const CountryAPI = axios.create({
-  baseURL: "https://restcountries.eu/rest/v2/name/"
-});
+const CountriesData = () => {
+const [countries, setCountries] = useState([])
 
-const getCountriesByName = (SearchByName, setCountryData) => {
-  CountryAPI.get("/" + SearchByName).then(response => {
-    setCountryData(response.data[0]);
-    // console.log(response.data);
-  });
-
-  // CountryAPI.get("/bangladesh").then(response => {
-  //   console.log(response);
-  // });
-};
-
-// const getCountriesByRegion = (region) => {
-//   CountryAPI.get("/" + SearchByName + region, {
-//
-// };
-
-// const getCountryDetail = () => {
-//   CountryAPI.get("/").then(resonse =>{});
-// };
-export default getCountriesByName;
+    const fetchCountryData = async() => {
+        const response = await fetch(url)
+        const countries = await response.json()
+        setCountries(countries)
+      }
+      useEffect(() =>{
+          fetchCountryData()
+     }, [])}
+export default CountriesData;

@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import SearchBar from "material-ui-search-bar";
-import axios from "axios";
+import Countries from './Countries';
 
-const CountryAPI = axios.create({
-  baseURL: "https://restcountries.eu/rest/v2/name/"
-});
-
+const url = 'https://restcountries.eu/rest/v2/all';
 const getCountriesByName = (SearchByName, setCountryData) => {
   CountryAPI.get("/" + SearchByName).then(response => {
     setCountryData(response.data[0]);
     // console.log(response.data);
-  });
+  });}
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,8 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
   }))
 
-const url = 'https://restcountries.eu/rest/v2/name/';
-const Searchbar = (props) => { 
+export function Searchbar(props){ 
     const classes = useStyles();
     const [SearchByName, setSearchByName] = useState("");
     const [countryData, setcountryData] = useState([]);
@@ -37,11 +33,10 @@ return (
   <SearchBar
   placeholder="Search for a country"
     onChange={newValue => {props.handleChange(newValue);}}
-    onRequestSearch={() => props.handleSubmit()}
+    onRequestSearch={() =>props.handleSubmit()}
   />
+  <Countries countryData={CountryData} />
   </div>
 );
 
 }
-
-export default Searchbar;

@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-const url ="https://restcountries.eu/rest/v2/region/"
+const url = 'https://restcountries.eu/rest/v2/all';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
-      marginLeft: 700,
       minWidth: 200,
       minHeight: 50,
       marginBottom:20,
@@ -42,7 +41,6 @@ const Filter = () => {
           onChange={handleChange}
           label="Age"
           inputProps={{
-            name: 'age',
             id: 'outlined-age-native-simple',
           }}
         >
