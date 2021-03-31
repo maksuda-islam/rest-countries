@@ -22,11 +22,17 @@ const useStyles = makeStyles((theme) => ({
 const Filter = () => {
     const classes = useStyles();
   const [region, setRegion] = useState([])
-  const fetchRegionData = async() => {
-    const response = await fetch(url)
-    const region = await response.json()
-    setRegion(region)
-  }
+  // const fetchRegionData = async() => {
+  //   const response = await fetch(url)
+  //   const region = await response.json()
+  //   setRegion(region)
+  // }
+
+  useEffect(() =>{
+    fetch(url)
+    .then((response) => response.json())
+    .then((json) => setRegion(json));
+  },[])
     const handleChange = (event) => {
         const name = event.target.name;
         setRegion({
@@ -40,7 +46,7 @@ const Filter = () => {
         <InputLabel htmlFor="outlined-age-native-simple">Filter By Region</InputLabel>
         <Select
           native
-          value={fetchRegionData}
+          value={region}
           onChange={handleChange}
           inputProps={{
             id: 'outlined-age-native-simple',

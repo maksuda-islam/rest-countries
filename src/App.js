@@ -72,8 +72,8 @@ function App() {
       </div>
       <Countries />
       <Paper style={{textAlign:'center', height:60,}}>
-        <Typography variant="h6" style={{marginTop:30,}}>
-          Copyright @maksudaislam@gmail.com 2021
+        <Typography variant="h6" style={{padding:15,}}>
+          Copyright @maksudaislamlima 2021
         </Typography>
       </Paper>
     </ThemeProvider>
