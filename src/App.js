@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from "@material-ui/core/Paper";
+// import Brightness3Icon from '@material-ui/icons/Brightness3';
+import NightsStayIcon from '@material-ui/icons/NightsStay';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,8 +59,10 @@ function App() {
         <Toolbar className={classes.toolbar}>
         <Typography variant="h5">
           Where in the world?
-          </Typography>
-          <Button onClick={handleDarkModeToggle}>Dark Mode
+          </Typography>          
+          <Button onClick={handleDarkModeToggle}> 
+          <NightsStayIcon></NightsStayIcon>
+            Dark Mode
           </Button>
         </Toolbar>
       </Paper >
@@ -67,6 +71,11 @@ function App() {
         <Filter/>
       </div>
       <Countries />
+      <Paper style={{textAlign:'center', height:60,}}>
+        <Typography variant="h6" style={{marginTop:30,}}>
+          Copyright @maksudaislam@gmail.com 2021
+        </Typography>
+      </Paper>
     </ThemeProvider>
     </div>
   )

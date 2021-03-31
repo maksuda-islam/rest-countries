@@ -4,7 +4,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-const url = 'https://restcountries.eu/rest/v2/all';
+const url = 'https://restcountries.eu/rest/v2/region/';
+
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -20,14 +21,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Filter = () => {
     const classes = useStyles();
-  const [state, setState] = React.useState({
-    age: '',
-    name: 'hai',
-  });
+  const [region, setRegion] = useState([])
+  const fetchRegionData = async() => {
+    const response = await fetch(url)
+    const region = await response.json()
+    setRegion(region)
+  }
     const handleChange = (event) => {
         const name = event.target.name;
-        setState({
-          ...state,
+        setRegion({
+          ...region,
           [name]: event.target.value,
         });
       };
@@ -37,13 +40,13 @@ const Filter = () => {
         <InputLabel htmlFor="outlined-age-native-simple">Filter By Region</InputLabel>
         <Select
           native
-          value={state.age}
+          value={fetchRegionData}
           onChange={handleChange}
-          label="Age"
           inputProps={{
             id: 'outlined-age-native-simple',
           }}
         >
+          console.log(value)
           {/* <option aria-label="All" value="" />
           <option value={10}>Ten</option>
           <option value={20}>Twenty</option> */}

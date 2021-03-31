@@ -18,6 +18,9 @@ const useStyles = makeStyles(theme => ({
   },
   media: {
     height: 200,
+  },
+  content:{
+    height: 150,
   }
 }))
 
@@ -54,8 +57,8 @@ const Countries = () => {
           className={classes.media}
           image={flag}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+        <CardContent className={classes.content}>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
            {name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
