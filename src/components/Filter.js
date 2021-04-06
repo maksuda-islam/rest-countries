@@ -22,11 +22,6 @@ const useStyles = makeStyles((theme) => ({
 const Filter = () => {
     const classes = useStyles();
   const [region, setRegion] = useState([])
-  // const fetchRegionData = async() => {
-  //   const response = await fetch(url)
-  //   const region = await response.json()
-  //   setRegion(region)
-  // }
 
   useEffect(() =>{
     fetch(url)
@@ -52,11 +47,14 @@ const Filter = () => {
             id: 'outlined-age-native-simple',
           }}
         >
-          console.log(value)
-          {/* <option aria-label="All" value="" />
-          <option value={10}>Ten</option>
-          <option value={20}>Twenty</option> */}
-          {/* <option>{url}</option> */}
+          <option aria-label="All" value="" />
+          <option value={10}>All</option>
+          <option value={20}>Africa</option>
+          <option value={30}>America</option>
+          <option value={40}>Asia</option>
+          <option value={50}>Europe</option>
+          <option value={60}>Ocenia</option>
+          
         </Select>
       </FormControl>
         </div>

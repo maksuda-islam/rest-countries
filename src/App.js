@@ -1,5 +1,4 @@
-import SearchBar from 'material-ui-search-bar';
-import React, { useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import Countries from './components/Countries';
 import Filter from './components/Filter';
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -10,8 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from "@material-ui/core/Paper";
+import Searchbar from "./components/Searchbar";
 // import Brightness3Icon from '@material-ui/icons/Brightness3';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
+
+const url = 'https://restcountries.eu/rest/v2/all';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,6 +33,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+
+  const [countries, setCountries] = useState([])
+  const [searchCountry, setsearchCountry] = useState([])
+  const fetchCountryData = async() => {
+    const response = await fetch(url)
+    const countries = await response.json()
+    setCountries(countries)
+    setsearchCountry(countries)
+  }
+
+  const searchCountries = (searchTerm) =>{
+    var result = [...countries];
+    result = result.filter(a => a.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    setsearchCountry(result)
+    // console.log(countries)
+}
+
+
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [darkMode, setDarkMode] = React.useState(prefersDarkMode);
 
@@ -44,6 +64,7 @@ function App() {
   );
   useEffect(() => {
     setDarkMode(prefersDarkMode);
+    fetchCountryData();
   }, [prefersDarkMode]);
   const handleDarkModeToggle = () => {
     setDarkMode(!darkMode);
@@ -67,13 +88,13 @@ function App() {
         </Toolbar>
       </Paper >
       <div className={classes.flex}>
-        <SearchBar />
+        <Searchbar searchCountries={searchCountries}/>
         <Filter/>
       </div>
-      <Countries />
+      <Countries countries={searchCountry}/>
       <Paper style={{textAlign:'center', height:60,}}>
         <Typography variant="h6" style={{padding:15,}}>
-          Copyright @maksudaislamlima 2021
+          Copyright maksudaislamlima 2021
         </Typography>
       </Paper>
     </ThemeProvider>

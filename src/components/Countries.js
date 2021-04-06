@@ -9,7 +9,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Filter from './Filter';
-const url = 'https://restcountries.eu/rest/v2/all';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,19 +23,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Countries = () => {
-    const [countries, setCountries] = useState([])
+
+const Countries = (props) => {
     const classes = useStyles();
 
-    const fetchCountryData = async() => {
-        const response = await fetch(url)
-        const countries = await response.json()
-        setCountries(countries)
-      }
-
-      useEffect(() =>{
-          fetchCountryData()
-     }, [])
     return (
         <div className={classes.root} onClick={() => {alert(<Filter />)}}>
            <Grid
@@ -46,7 +36,7 @@ const Countries = () => {
                 justify="flex-start"
                 alignItems="flex-start"
             >
-            {countries.map((country) => {
+            {props.countries.map((country) => {
                 const{numericCode, flag, name, population, region, capital} = country
 
                 return <Grid item xs={12} sm={6} md={3} key={numericCode}>
