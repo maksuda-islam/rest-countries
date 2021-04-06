@@ -36,19 +36,31 @@ function App() {
 
   const [countries, setCountries] = useState([])
   const [searchCountry, setsearchCountry] = useState([])
+  const [filterCountry, setfilterCountry] = useState([])
+
+
+
+
   const fetchCountryData = async() => {
     const response = await fetch(url)
     const countries = await response.json()
     setCountries(countries)
     setsearchCountry(countries)
+    setfilterCountry(countries)
   }
 
   const searchCountries = (searchTerm) =>{
-    var result = [...countries];
-    result = result.filter(a => a.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    setsearchCountry(result)
+    var search = [...countries];
+    search = search.filter(a => a.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    setsearchCountry(search)
     // console.log(countries)
 }
+
+  const filterCountries =(filterTerm) =>{
+    var filter = [...countries];
+    filter = filter.filter(a => a.region.includes(filterTerm));
+    setsearchCountry(filter)
+  }
 
 
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -89,14 +101,14 @@ function App() {
       </Paper >
       <div className={classes.flex}>
         <Searchbar searchCountries={searchCountries}/>
-        <Filter/>
+        <Filter filterCountries={filterCountries}/>
       </div>
       <Countries countries={searchCountry}/>
-      <Paper style={{textAlign:'center', height:60,}}>
+      {/* <Paper style={{textAlign:'center', height:60,}}>
         <Typography variant="h6" style={{padding:15,}}>
           Copyright maksudaislamlima 2021
         </Typography>
-      </Paper>
+      </Paper> */}
     </ThemeProvider>
     </div>
   )
