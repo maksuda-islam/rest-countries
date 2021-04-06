@@ -128,7 +128,7 @@ The remainder of this document contains a tutorial on creating a React app (usin
 
 1. **Create an *empty* repository on GitHub.** (2 minutes)
 
-    * For this tutorial, I'll create a repository named `react-gh-pages`.
+    * For this tutorial, I'll create a repository named `rest-countries`.
     * By *empty*, I mean *without* a `README.md` file, a `.gitignore` file, a `LICENSE` file, or any other files.
 
 2. **Create a new React app on your computer.** (5 minutes)
