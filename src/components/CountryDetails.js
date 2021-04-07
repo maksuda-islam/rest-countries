@@ -37,10 +37,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CountryDetails(props) {
   const classes = useStyles();
-  const alpha3Code=(code)=>{
-    return
-      props.location.alpha3Code = code
-  } 
+  // const alpha3Code=(code)=>{
+  //   return
+  //     props.location.alpha3Code = code
+  // } 
 
   return (
     <div className={classes.root}>
@@ -69,7 +69,7 @@ export default function CountryDetails(props) {
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography variant="body3" style={{ cursor: 'pointer' }}>
+                {/* <Typography variant="body3" style={{ cursor: 'pointer' }}>
                   <strong>Border Countries : </strong>{props.location.borders.map((border, i) =>{
                     const { props } = this.alpha3Code(border)
                     return(
@@ -82,7 +82,7 @@ export default function CountryDetails(props) {
 
                     )
                   })}
-                </Typography>
+                </Typography> */}
               </Grid>
             </Grid>
             <Grid item>
