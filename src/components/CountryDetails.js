@@ -37,10 +37,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CountryDetails(props) {
   const classes = useStyles();
-  // const alpha3Code=(code)=>{
-  //   return
-  //     props.location.alpha3Code = code
-  // } 
 
   return (
     <div className={classes.root}>
