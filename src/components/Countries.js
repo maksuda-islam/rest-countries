@@ -42,16 +42,11 @@ const Countries = (props) => {
                 alignItems="flex-start"
             >
             {props.countries.map((country) => {
-                const{numericCode, flag, name, population, region, capital, nativeName,subregion, languages,
-                  topLevelDomain,currencies,alpha3Code,borders} = country
+                const{numericCode, flag, name, population, region, capital, alpha3Code} = country
 
                 return <Grid item xs={12} sm={6} md={3} key={numericCode}>
                     
-                    <NavLink className={classes.nav} to={{pathname: "/countrydetails/" + name.replace(/ +/g, "") , countryName:name, 
-                    image:flag, Population: population, Region:region,
-                    Capital:capital, NativeName:nativeName, SubRegion:subregion, Languages:languages, topLevelDomain:topLevelDomain, 
-                    currencies:currencies, alpha3Code:alpha3Code,
-                    borders:borders
+                    <NavLink className={classes.nav} to={{pathname: "/" + alpha3Code
                   }}>
                     <Card >
                    

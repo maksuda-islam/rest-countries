@@ -17,7 +17,7 @@ ReactDOM.render(
                 <Redirect to="/" />
             </Route>
                 <Route path="/" exact component={App}/>
-                <Route path="/countrydetails/:numericCode" exact component={CountryDetails} />
+                <Route path="/:numericCode" exact component={CountryDetails} />
             </div>
          
         </Router>
