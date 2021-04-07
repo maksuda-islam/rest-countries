@@ -6,9 +6,11 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Filter from './Filter';
+import {
+  BrowserRouter as Router,
+  NavLink
+} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,7 +22,10 @@ const useStyles = makeStyles(theme => ({
   },
   content:{
     height: 150,
-  }
+  },
+  nav:{
+    textDecoration: 'None',
+  },
 }))
 
 
@@ -28,7 +33,7 @@ const Countries = (props) => {
     const classes = useStyles();
 
     return (
-        <div className={classes.root} onClick={() => {alert(<Filter />)}}>
+        <div className={classes.root}>
            <Grid
                 container
                 spacing={2}
@@ -37,9 +42,17 @@ const Countries = (props) => {
                 alignItems="flex-start"
             >
             {props.countries.map((country) => {
-                const{numericCode, flag, name, population, region, capital} = country
+                const{numericCode, flag, name, population, region, capital, nativeName,subregion, languages,
+                  topLevelDomain,currencies,alpha3Code,borders} = country
 
                 return <Grid item xs={12} sm={6} md={3} key={numericCode}>
+                    
+                    <NavLink className={classes.nav} to={{pathname: "/countrydetails/" + name.replace(/ +/g, "") , countryName:name, 
+                    image:flag, Population: population, Region:region,
+                    Capital:capital, NativeName:nativeName, SubRegion:subregion, Languages:languages, topLevelDomain:topLevelDomain, 
+                    currencies:currencies, alpha3Code:alpha3Code,
+                    borders:borders
+                  }}>
                     <Card >
                    
       <CardActionArea>
@@ -63,16 +76,14 @@ const Countries = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        {/* <Button size="small" color="primary">
-          Learn More
-        </Button> */}
       </CardActions>
    
     </Card>
-                </Grid>
+    </NavLink>
+   
+     </Grid>
             })}
       </Grid>
-            
         </div>
     )
 }

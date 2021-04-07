@@ -26,7 +26,7 @@ export default function Filter(props) {
         <Select
           onChange={ (event)=>{
             props.filterCountries(event.target.value)
-            console.log(event.target.value)
+            // console.log(event.target.value)
           }}
         >
           <MenuItem value={''}>
