@@ -14,11 +14,8 @@ ReactDOM.render(
         <Router history={customHistory}>
             <Theme/>
             <div>
-            <Route exact path="/rest-countries">
-                <Redirect to="/" />
-            </Route>
-                <Route path="/" exact component={App}/>
-                <Route path="/:numericCode" exact component={CountryDetails} />
+                <Route path="/rest-countries" exact component={App}/>
+                <Route path="/rest-countries/:numericCode" exact component={CountryDetails} />
             </div>
             <Footer />
          

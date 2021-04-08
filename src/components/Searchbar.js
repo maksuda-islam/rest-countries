@@ -24,9 +24,6 @@ return (
   }
 />
 </div>
-
-);
-
-}
+);}
 
 export default Searchbar;

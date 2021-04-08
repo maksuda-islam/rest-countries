@@ -42,20 +42,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CodeURL = "https://restcountries.eu/rest/v2/alpha"
+const CodeURL = "https://restcountries.eu/rest/v2/alpha/"
 
 
 export default function CountryDetails(props) {
   const classes = useStyles();
-  const [countryByCodeURL, setCountryByCodeURL ] = useState(CodeURL+window.location.pathname)
+  const [countryByCodeURL, setCountryByCodeURL ] = useState(CodeURL+window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1))
 
   const [countryByCode,setCountryByCode] = useState([]);
 
   const fetchCountryDataByCode = async() => {
-    const response = await fetch(CodeURL+window.location.pathname)
+    const response = await fetch(CodeURL+window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1))
     const data = await response.json()
     setCountryByCode(data)
-    console.log(window.location.pathname)
+    console.log(window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1))
   } 
 
   useEffect(()=>{
@@ -68,7 +68,7 @@ export default function CountryDetails(props) {
     <div className={classes.root}>
          <Paper className={classes.paper1}>
 
-          <NavLink className={classes.nav} to={{pathname: "/"}}>
+          <NavLink className={classes.nav} to={{pathname: "/rest-countries"}}>
         <Button variant="outlined" className={classes.buttonStyle}> <ArrowBackIcon /> Back</Button> </NavLink> 
         <Grid container spacing={6}>
           <Grid item>
@@ -93,10 +93,10 @@ export default function CountryDetails(props) {
                   <strong>Border Countries : </strong>
                   {countryByCode.borders ==undefined ? "" : (countryByCode.borders.map(e =>
                    <NavLink className={classes.nav}
-                  to={{pathname: "/" + e}}
+                  to={{pathname: "/rest-countries/" + e}}
                     onClick={()=>{
-                      setCountryByCodeURL(CodeURL + "/" + e)
-                      console.log(CodeURL + "/" + e)
+                      setCountryByCodeURL(CodeURL + "/rest-countries/" + e)
+                      console.log(CodeURL + "/rest-countries/" + e)
                     }}> 
                     <Button variant="outlined" style={{margin:3,}}>
                     {e} 
