@@ -10,7 +10,7 @@ import Paper from "@material-ui/core/Paper";
 // import Brightness3Icon from '@material-ui/icons/Brightness3';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 
-import {responsiveFontSizes } from '@material-ui/core/styles';
+import { responsiveFontSizes } from '@material-ui/core/styles';
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
