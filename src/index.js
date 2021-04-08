@@ -4,6 +4,7 @@ import './index.css';
 import App from "./App";
 import CountryDetails from './components/CountryDetails';
 import Theme from './components/Theme';
+import Footer from './components/Footer';
 import {BrowserRouter as Router, Link, Route, Redirect} from "react-router-dom";
 import { createBrowserHistory } from "history";
 const customHistory = createBrowserHistory();
@@ -19,6 +20,7 @@ ReactDOM.render(
                 <Route path="/" exact component={App}/>
                 <Route path="/:numericCode" exact component={CountryDetails} />
             </div>
+            <Footer />
          
         </Router>
     </React.StrictMode>,
