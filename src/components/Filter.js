@@ -4,6 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import {ThemeProvider } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -21,6 +22,7 @@ export default function Filter(props) {
 
     return (
         <div>
+          <ThemeProvider>
          <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-outlined-label">Filter By Region</InputLabel>
         <Select
@@ -39,6 +41,7 @@ export default function Filter(props) {
           <MenuItem value={'Oceania'}>Oceania</MenuItem>
         </Select>
       </FormControl>
+      </ThemeProvider>
         </div>
     )
 }

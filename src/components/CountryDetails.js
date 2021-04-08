@@ -9,26 +9,32 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {
   BrowserRouter as Router,
   NavLink,
-  useLocation
 } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
   overflow:'hidden',
   },
-  paper: {
-    padding: theme.spacing(2),
-    margin: 'auto',
-    maxWidth: 1200,
-    maxHeight:1000,
+
+  paper1:{
+    padding: theme.spacing(3),
+    // textAlign: 'center',
+    whiteSpace: 'nowrap',
+    margin: theme.spacing(6),
+    padding:theme.spacing(10),
   },
-  image: {
-    width: 428,
-    height: 428,
+  buttonStyle:{
+    marginBottom:50,
+  },
+  container: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
+    gridGap: theme.spacing(3),
   },
   img: {
     margin: 'auto',
     display: 'block',
     maxWidth: 420,
+    minWidth:'auto',
     maxHeight: 420,
   },
   nav:{
@@ -60,15 +66,13 @@ export default function CountryDetails(props) {
 
   return (
     <div className={classes.root}>
-     
+         <Paper className={classes.paper1}>
 
           <NavLink className={classes.nav} to={{pathname: "/"}}>
-        <Button variant="outlined"> <ArrowBackIcon /> Back</Button> </NavLink> 
-        <Grid container spacing={2}>
+        <Button variant="outlined" className={classes.buttonStyle}> <ArrowBackIcon /> Back</Button> </NavLink> 
+        <Grid container spacing={6}>
           <Grid item>
-          <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" src={countryByCode.flag} />
-            </ButtonBase>
+              <img className={classes.img} alt="complex" src={countryByCode.flag} />          
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
@@ -94,7 +98,7 @@ export default function CountryDetails(props) {
                       setCountryByCodeURL(CodeURL + "/" + e)
                       console.log(CodeURL + "/" + e)
                     }}> 
-                    <Button varient="outline">
+                    <Button variant="outlined" style={{margin:3,}}>
                     {e} 
                     </Button></NavLink>
                   
@@ -118,6 +122,47 @@ export default function CountryDetails(props) {
             </Grid>
           </Grid>
         </Grid>
+
+        </Paper>
+
+
+
+        {/* <Paper className={classes.paper1}>
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+        <NavLink className={classes.nav} to={{pathname: "/"}}>
+        <Button variant="outlined"> <ArrowBackIcon /> Back</Button> </NavLink> 
+        </Grid>
+        <Grid item xs={6}>
+        
+              <img src={countryByCode.flag} />
+    
+        </Grid>
+        <Grid item xs={6}>
+        <Grid item xs={3}>
+        <Typography gutterBottom variant="h4">
+                  <strong>{countryByCode.name}</strong>
+                </Typography>
+                <Typography> <strong>Native Name : </strong>{countryByCode.nativeName} </Typography>
+                  <Typography><strong>Population : </strong>{countryByCode.population} </Typography>
+                  <Typography><strong>Region : </strong>{countryByCode.region} </Typography> 
+                  <Typography><strong>Sub Region : </strong>{countryByCode.subregion} </Typography>
+                  <Typography><strong>Capital : </strong>{countryByCode.capital} </Typography>
+        </Grid>
+        
+        </Grid>
+        <Grid item xs={3}>
+          <Paper className={classes.paper1}>xs=3</Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper className={classes.paper1}>xs=8</Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper1}>xs=4</Paper>
+        </Grid>
+      </Grid>
+      </Paper> */}
+
 
     </div>
   );
