@@ -5,13 +5,11 @@ import App from "./App";
 import CountryDetails from './components/CountryDetails';
 import Theme from './components/Theme';
 import Footer from './components/Footer';
-import {BrowserRouter as Router, Link, Route, Redirect} from "react-router-dom";
-import { createBrowserHistory } from "history";
-const customHistory = createBrowserHistory();
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 ReactDOM.render(
     <React.StrictMode>
-        <Router history={customHistory}>
+        <Router>
             <Theme/>
             <div>
                 <Route path="/rest-countries" exact component={App}/>

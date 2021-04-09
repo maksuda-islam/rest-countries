@@ -45,8 +45,7 @@ export default function CountryDetails(props) {
   } 
 
   useEffect(()=>{
-    fetchCountryDataByCode();  
-    console.log(props.match.params.alpha3Code)
+    fetchCountryDataByCode();
   },[countryByCodeURL]);
 
 
