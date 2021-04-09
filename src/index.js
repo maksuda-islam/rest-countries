@@ -15,7 +15,7 @@ ReactDOM.render(
             <Theme/>
             <div>
                 <Route path="/rest-countries" exact component={App}/>
-                <Route path="/rest-countries/:numericCode" exact component={CountryDetails} />
+                <Route path="/rest-countries/:alpha3Code" exact component={CountryDetails} />
             </div>
             <Footer />
          

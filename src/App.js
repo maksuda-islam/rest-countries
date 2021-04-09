@@ -68,11 +68,6 @@ function App() {
       
       </div>
       <Countries countries={searchCountry}/>
-      {/* <Paper style={{textAlign:'center', height:60,}}>
-        <Typography variant="h6" style={{padding:15,}}>
-          Copyright maksudaislamlima 2021
-        </Typography>
-      </Paper> */}
 
     </div>
   )

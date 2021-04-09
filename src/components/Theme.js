@@ -10,9 +10,6 @@ import Paper from "@material-ui/core/Paper";
 // import Brightness3Icon from '@material-ui/icons/Brightness3';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 
-import { responsiveFontSizes } from '@material-ui/core/styles';
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 30,
