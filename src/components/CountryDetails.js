@@ -1,9 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {
@@ -20,10 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     margin: 'auto',
-    display: 'block',
     maxWidth: 450,
-    minWidth:'80%',
+    minWidth:'100%',
     height: 'auto',
+
   },
   nav:{
     textDecoration: 'None',

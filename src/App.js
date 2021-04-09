@@ -2,8 +2,11 @@ import React, {useState, useEffect } from 'react';
 import Countries from './components/Countries';
 import Filter from './components/Filter';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from "@material-ui/core/Paper";
 import Searchbar from "./components/Searchbar";
+
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const url = 'https://restcountries.eu/rest/v2/all';
 
@@ -25,6 +28,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [darkMode, setDarkMode] = React.useState(prefersDarkMode);
+
+
+  const theme = React.useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          type: darkMode ? 'dark' : 'light',
+        },
+      }),
+      
+  );
 
   const [countries, setCountries] = useState([])
   const [searchCountry, setsearchCountry] = useState([])
@@ -50,14 +67,17 @@ function App() {
     setsearchCountry(filter)
   }
   useEffect(() => {
+    setDarkMode(prefersDarkMode);
     fetchCountryData();
-  }, []);
+  }, [prefersDarkMode]);
 
   const classes = useStyles();
   
   return (
     
     <div className={classes.root}> 
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
       
       <div className={classes.flex}>
 
@@ -68,6 +88,8 @@ function App() {
       
       </div>
       <Countries countries={searchCountry}/>
+
+      </ThemeProvider>
 
     </div>
   )
