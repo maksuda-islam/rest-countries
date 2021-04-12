@@ -1,20 +1,17 @@
 {
   "files": {
-    "main.css": "/rest-countries/static/css/main.b52dabd3.chunk.css",
-    "main.js": "/rest-countries/static/js/main.cc817440.chunk.js",
-    "main.js.map": "/rest-countries/static/js/main.cc817440.chunk.js.map",
+    "main.js": "/rest-countries/static/js/main.ebf4f0e6.chunk.js",
+    "main.js.map": "/rest-countries/static/js/main.ebf4f0e6.chunk.js.map",
     "runtime-main.js": "/rest-countries/static/js/runtime-main.6d89ba32.js",
     "runtime-main.js.map": "/rest-countries/static/js/runtime-main.6d89ba32.js.map",
-    "static/js/2.c009497b.chunk.js": "/rest-countries/static/js/2.c009497b.chunk.js",
-    "static/js/2.c009497b.chunk.js.map": "/rest-countries/static/js/2.c009497b.chunk.js.map",
+    "static/js/2.0afa38a9.chunk.js": "/rest-countries/static/js/2.0afa38a9.chunk.js",
+    "static/js/2.0afa38a9.chunk.js.map": "/rest-countries/static/js/2.0afa38a9.chunk.js.map",
     "index.html": "/rest-countries/index.html",
-    "static/css/main.b52dabd3.chunk.css.map": "/rest-countries/static/css/main.b52dabd3.chunk.css.map",
-    "static/js/2.c009497b.chunk.js.LICENSE.txt": "/rest-countries/static/js/2.c009497b.chunk.js.LICENSE.txt"
+    "static/js/2.0afa38a9.chunk.js.LICENSE.txt": "/rest-countries/static/js/2.0afa38a9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6d89ba32.js",
-    "static/js/2.c009497b.chunk.js",
-    "static/css/main.b52dabd3.chunk.css",
-    "static/js/main.cc817440.chunk.js"
+    "static/js/2.0afa38a9.chunk.js",
+    "static/js/main.ebf4f0e6.chunk.js"
   ]
 }
