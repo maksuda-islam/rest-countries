@@ -1,6 +1,6 @@
-import React, {useEffect } from 'react';
+import React, { useEffect } from 'react';
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { createMuiTheme, ThemeProvider, responsiveFontSizes } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -13,13 +13,13 @@ import NightsStayIcon from '@material-ui/icons/NightsStay';
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 30,
-    
+
   },
-  paper:{
+  paper: {
     marginBottom: 30,
   },
 
-  toolbar:{
+  toolbar: {
     justifyContent: 'space-between',
   }
 }));
@@ -36,7 +36,7 @@ function Theme() {
           type: darkMode ? 'dark' : 'light',
         },
       }),
-      
+
   );
   useEffect(() => {
     setDarkMode(prefersDarkMode);
@@ -45,24 +45,24 @@ function Theme() {
     setDarkMode(!darkMode);
   };
   const classes = useStyles();
-  
+
   return (
-    
-    <div className={classes.root}> 
+
+    <div className={classes.root}>
       <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      <Paper position="static" className={classes.paper}>
-        <Toolbar className={classes.toolbar}>
-        <Typography variant="h5">
-          Where in the world?
-          </Typography>          
-          <Button onClick={handleDarkModeToggle}> 
-          <NightsStayIcon></NightsStayIcon>
+        <CssBaseline />
+        <Paper position="static" className={classes.paper}>
+          <Toolbar className={classes.toolbar}>
+            <Typography variant="h5">
+              Where in the world?
+          </Typography>
+            <Button onClick={handleDarkModeToggle}>
+              <NightsStayIcon></NightsStayIcon>
             Dark Mode
           </Button>
-        </Toolbar>
-      </Paper >
-    </ThemeProvider>
+          </Toolbar>
+        </Paper >
+      </ThemeProvider>
     </div>
   )
 }

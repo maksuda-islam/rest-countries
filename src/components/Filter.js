@@ -4,13 +4,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { Paper } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: 230,
     minHeight: 50,
-    marginBottom:20,
+    marginBottom: 20,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -20,15 +21,13 @@ const useStyles = makeStyles((theme) => ({
 export default function Filter(props) {
   const classes = useStyles();
 
-    return (
-        <div>
-          <ThemeProvider>
-         <FormControl variant="outlined" className={classes.formControl}>
+  return (
+    <div>
+      <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-outlined-label">Filter By Region</InputLabel>
         <Select
-          onChange={ (event)=>{
+          onChange={(event) => {
             props.filterCountries(event.target.value)
-            // console.log(event.target.value)
           }}
         >
           <MenuItem value={''}>
@@ -41,14 +40,6 @@ export default function Filter(props) {
           <MenuItem value={'Oceania'}>Oceania</MenuItem>
         </Select>
       </FormControl>
-      </ThemeProvider>
-        </div>
-    )
+    </div>
+  )
 }
-
-
-
-
-
-
-

@@ -4,17 +4,17 @@ import CopyrightIcon from '@material-ui/icons/Copyright';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 
-    paper:{
-        textAlign:'center', height:60, paddingTop: 20,
+    paper: {
+        textAlign: 'center', height: 60, paddingTop: 20,
     },
-  }));
-const Footer = () =>{
+}));
+const Footer = () => {
     const classes = useStyles();
-    return(
+    return (
         <div>
             <Paper className={classes.paper}>
-                <CopyrightIcon style={{fontSize:'small'}}/> 2021. Challenge by frontend Mentor. Coded by @kima063.
-                
+                <CopyrightIcon style={{ fontSize: 'small' }} /> Copyright 2021. Challenge by frontend Mentor. Coded by Maksuda Islam Lima.
+
 
             </Paper>
         </div>
