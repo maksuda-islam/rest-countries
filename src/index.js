@@ -87,9 +87,9 @@ ReactDOM.render(
       
       <Route path="/rest-countries/:alpha3Code" exact component={CountryDetails} />
 
-      <Route path="*"> 
+      {/* <Route path="*"> 
       <Redirect to={{pathname:"/rest-countries"}} />
-      </Route>
+      </Route> */}
     </div>
     <Footer />
   </Router>,
