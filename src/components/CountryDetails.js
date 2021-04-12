@@ -102,9 +102,6 @@ export default function CountryDetails(props) {
           </Typography>
         </Grid>
       </Grid>
-
-
-
     </div>
 
   );

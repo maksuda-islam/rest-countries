@@ -4,7 +4,7 @@ import App from "./App";
 import CountryDetails from './components/CountryDetails';
 // import Theme from './components/Theme';
 import Footer from './components/Footer';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 
 
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   paper: {
-    marginBottom: 30,
+    margin:0,
   },
 
   toolbar: {
@@ -81,9 +81,15 @@ export default function Theme() {
 ReactDOM.render(
   <Router>
     <Theme />
+   
     <div>
       <Route path="/rest-countries" exact component={App} />
+      
       <Route path="/rest-countries/:alpha3Code" exact component={CountryDetails} />
+
+      <Route path="*"> 
+      <Redirect to={{pathname:"/rest-countries"}} />
+      </Route>
     </div>
     <Footer />
   </Router>,
