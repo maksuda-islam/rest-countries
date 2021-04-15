@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from "@material-ui/core/Paper";
+import AppBar from '@material-ui/core/AppBar';
 // import Brightness3Icon from '@material-ui/icons/Brightness3';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 
@@ -51,6 +52,19 @@ function Theme() {
     <div className={classes.root}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        
+        <AppBar position="static">
+        <Toolbar className={classes.toolbar}>
+        <Typography variant="h5">
+              Where in the world?
+          </Typography>
+          <Button onClick={handleDarkModeToggle}>
+              <NightsStayIcon></NightsStayIcon>
+            Dark Mode
+          </Button>
+        </Toolbar>
+      </AppBar>
+
         <Paper position="static" className={classes.paper}>
           <Toolbar className={classes.toolbar}>
             <Typography variant="h5">
