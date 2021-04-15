@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import CountryDetails from "./components/CountryDetails";
-// import Theme from './components/Theme';
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 

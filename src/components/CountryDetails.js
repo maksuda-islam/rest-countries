@@ -30,9 +30,9 @@ export default function CountryDetails(props) {
   const classes = useStyles();
   const [countryByCodeURL, setCountryByCodeURL] = useState(
     CodeURL +
-      window.location.pathname.substring(
-        window.location.pathname.lastIndexOf("/") + 1
-      )
+    window.location.pathname.substring(
+      window.location.pathname.lastIndexOf("/") + 1
+    )
   );
 
   const [countryByCode, setCountryByCode] = useState([]);
@@ -40,9 +40,9 @@ export default function CountryDetails(props) {
   const fetchCountryDataByCode = async () => {
     const response = await fetch(
       CodeURL +
-        window.location.pathname.substring(
-          window.location.pathname.lastIndexOf("/") + 1
-        )
+      window.location.pathname.substring(
+        window.location.pathname.lastIndexOf("/") + 1
+      )
     );
     const data = await response.json();
     setCountryByCode(data);
@@ -99,18 +99,18 @@ export default function CountryDetails(props) {
             {countryByCode.borders === undefined
               ? ""
               : countryByCode.borders.map((e) => (
-                  <NavLink
-                    className={classes.nav}
-                    to={{ pathname: "/" + e }}
-                    onClick={() => {
-                      setCountryByCodeURL(CodeURL + "/" + e);
-                    }}
-                  >
-                    <Button variant="outlined" style={{ margin: 3 }}>
-                      {e}
-                    </Button>
-                  </NavLink>
-                ))}
+                <NavLink
+                  className={classes.nav}
+                  to={{ pathname: "/" + e }}
+                  onClick={() => {
+                    setCountryByCodeURL(CodeURL + "/" + e);
+                  }}
+                >
+                  <Button variant="outlined" style={{ margin: 3 }}>
+                    {e}
+                  </Button>
+                </NavLink>
+              ))}
           </Typography>
         </Grid>
         <Grid item lg={4} xs={12}>
