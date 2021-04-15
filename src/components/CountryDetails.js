@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     marginBottom: '30%',
-    maxWidth: 450,
+    maxWidth: 350,
     minWidth: '100%',
     height: 'auto',
 

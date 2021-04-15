@@ -3,6 +3,9 @@ import Countries from './components/Countries';
 import Filter from './components/Filter';
 import { makeStyles } from '@material-ui/core/styles';
 import Searchbar from "./components/Searchbar";
+
+import { ThemeProvider } from "@material-ui/core/styles";
+
 const url = 'https://restcountries.eu/rest/v2/all';
 
 const useStyles = makeStyles((theme) => ({
@@ -56,11 +59,13 @@ function App() {
   return (
 
     <div className={classes.root}>
+      <ThemeProvider>
       <div className={classes.flex}>
         <Searchbar searchCountries={searchCountries} />
         <Filter filterCountries={filterCountries} />
       </div>
       <Countries countries={searchCountry} />
+      </ThemeProvider>
 
     </div>
   )

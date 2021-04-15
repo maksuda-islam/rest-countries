@@ -5,7 +5,7 @@ import SearchBar from "material-ui-search-bar";
 const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: 320,
-    padding: theme.spacing(2),
+    padding:2,
   },
 
 }))
