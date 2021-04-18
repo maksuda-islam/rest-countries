@@ -23,6 +23,9 @@ export default function Filter(props) {
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-outlined-label">Filter By Region</InputLabel>
         <Select
+          labelId="demo-simple-select-outlined-label"
+          id="demo-simple-select-outlined"
+          label="Filter By Region"
           onChange={(event) => {
             props.filterCountries(event.target.value)
           }}
