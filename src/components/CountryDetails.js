@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import Skeleton from '@material-ui/lab/Skeleton';
+import CircularProgress from '@material-ui/core/CircularProgress';
 const useStyles = makeStyles((theme) => ({
   root: {
     overflow: "hidden",
@@ -14,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 50
   },
   img: {
-    marginBottom: "30%",
     maxWidth: 350,
     minWidth: "100%",
     height: "auto"
@@ -64,7 +65,11 @@ export default function CountryDetails(props) {
           </NavLink>
         </Grid>
         <Grid item lg={4} xs={12}>
-          <img className={classes.img} alt="complex" src={countryByCode.flag} />
+        {countryByCode.flag == undefined ? (
+         <Skeleton variant="rect" width={300} height={218} />
+        ) : (
+          <img className={classes.img} alt="complex" src={countryByCode.flag}  />
+        )}
         </Grid>
         <Grid item lg={4} xs={12}>
           <Typography gutterBottom variant="h4">
@@ -74,30 +79,40 @@ export default function CountryDetails(props) {
             <Typography>
               {" "}
               <strong>Native Name : </strong>
-              {countryByCode.nativeName}{" "}
+              {countryByCode.nativeName === undefined ?
+              <CircularProgress />
+              : countryByCode.nativeName}
             </Typography>
             <Typography>
               <strong>Population : </strong>
-              {countryByCode.population}{" "}
+              {countryByCode.population === undefined ?
+              <CircularProgress />
+              : countryByCode.population}
             </Typography>
             <Typography>
               <strong>Region : </strong>
-              {countryByCode.region}{" "}
+              {countryByCode.region === undefined ?
+              <CircularProgress />
+              : countryByCode.region}
             </Typography>
             <Typography>
               <strong>Sub Region : </strong>
-              {countryByCode.subregion}{" "}
+              {countryByCode.subregion === undefined ?
+              <CircularProgress />
+              : countryByCode.subregion}
             </Typography>
             <Typography>
               <strong>Capital : </strong>
-              {countryByCode.capital}{" "}
+              {countryByCode.capital === undefined ?
+              <CircularProgress />
+              : countryByCode.capital}
             </Typography>
           </Typography>
 
           <Typography variant="body3" style={{ cursor: "pointer" }}>
             <strong>Border Countries : </strong>
             {countryByCode.borders === undefined
-              ? ""
+              ? <CircularProgress />
               : countryByCode.borders.map((e) => (
                 <NavLink
                   className={classes.nav}
@@ -118,19 +133,19 @@ export default function CountryDetails(props) {
             <Typography>
               <strong>Top Level Domain : </strong>
               {countryByCode.topLevelDomain === undefined
-                ? ""
+                ? <CircularProgress />
                 : countryByCode.topLevelDomain.join(", ")}
             </Typography>
             <Typography>
               <strong>Currencies : </strong>
               {countryByCode.currencies === undefined
-                ? ""
+                ? <CircularProgress />
                 : countryByCode.currencies.map((e) => e.name).join(", ")}
             </Typography>
             <Typography>
               <strong>Languages : </strong>
               {countryByCode.languages === undefined
-                ? ""
+                ? <CircularProgress />
                 : countryByCode.languages.map((e) => e.name).join(", ")}
             </Typography>
           </Typography>
