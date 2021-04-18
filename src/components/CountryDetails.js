@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Skeleton from '@material-ui/lab/Skeleton';
 import CircularProgress from '@material-ui/core/CircularProgress';
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +65,7 @@ export default function CountryDetails(props) {
           </NavLink>
         </Grid>
         <Grid item lg={4} xs={12}>
-        {countryByCode.flag == undefined ? (
+        {countryByCode.flag === undefined ? (
          <Skeleton variant="rect" width={300} height={218} />
         ) : (
           <img className={classes.img} alt="complex" src={countryByCode.flag}  />
