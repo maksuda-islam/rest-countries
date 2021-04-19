@@ -5,8 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 
     paper: {
-        textAlign: 'center', height: 60, padding: 20,
-        minHeight: "calc(40vh - 39px)"
+        textAlign: 'center', height: 60, padding:20,
+        marginTop: "calc(15% + 60px)",
+        bottom: 0,
     },
 }));
 const Footer = () => {
