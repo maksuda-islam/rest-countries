@@ -35,7 +35,6 @@ export default function Root() {
 
   useEffect(() => {
     setDarkMode(prefersDarkMode);
-    console.log(theme)
   }, [prefersDarkMode]);
 
   const handleDarkModeToggle = () => {
