@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   img: {
     maxWidth: 400,
     height: "auto",
-    justifyContent: 'center',
+    // justify: "center",
     // padding: 10,
   },
   nav: {
@@ -64,7 +64,7 @@ export default function CountryDetails(props) {
             </Button>
           </NavLink>
         </Grid>
-        <Grid item lg={4} xs={12}>
+        <Grid item lg={4} xs={12} container justify="center">
           {countryByCode.flag === undefined ? (
             <Skeleton variant="rect" width={300} height={218} />
           ) : (
