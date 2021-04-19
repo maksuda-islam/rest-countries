@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const [countries, setCountries] = useState([])
-  const [searchCountry, setsearchCountry] = useState([])
+  const [searchCountry, setsearchCountry] = useState([]) 
+  const [empty, setEmpty] = useState(false)
   const fetchCountryData = async () => {
     const response = await fetch(url)
     const countries = await response.json()
@@ -45,6 +46,7 @@ function App() {
   const searchCountries = (searchTerm) => {
     var search = [...countries];
     search = search.filter(a => a.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    (search.length===0 ) ? setEmpty(true) : setEmpty(false)
     setsearchCountry(search)
   }
 
@@ -73,7 +75,8 @@ function App() {
             <Filter filterCountries={filterCountries} />
           </Grid>
         </Grid>
-        <Countries countries={searchCountry} />
+        {empty===true ? <h2>Not Found</h2> :
+        <Countries countries={searchCountry} /> }
       </ThemeProvider>
 
     </div>

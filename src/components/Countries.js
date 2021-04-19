@@ -28,7 +28,6 @@ const Countries = (props) => {
   const classes = useStyles();
 
   return (
-    (props.countries.length === 0) ?  <Typography variant="h1">Not Found</Typography> :
       <div className={classes.root}>
         <Grid
           container

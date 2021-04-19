@@ -16,11 +16,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 50
   },
   img: {
-    maxWidth: 380,
-    width: 'auto',
+    maxWidth: 400,
     height: "auto",
     justifyContent: 'center',
-    padding: 10,
+    // padding: 10,
   },
   nav: {
     textDecoration: "None"
