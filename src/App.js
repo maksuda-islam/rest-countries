@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridGap: theme.spacing(3),
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     width: '100%'
   },
   root: {
@@ -35,13 +35,11 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const [countries, setCountries] = useState([])
   const [searchCountry, setsearchCountry] = useState([])
-  const [filterCountry, setfilterCountry] = useState([])
   const fetchCountryData = async () => {
     const response = await fetch(url)
     const countries = await response.json()
     setCountries(countries)
     setsearchCountry(countries)
-    setfilterCountry(countries)
   }
 
   const searchCountries = (searchTerm) => {
@@ -67,15 +65,15 @@ function App() {
 
     <div className={classes.root}>
       <ThemeProvider>
-      <Grid container className={classes.flex}>
-      <Grid item xs={12} sm={3} style={{marginBottom:20,float:'left'}}>
-      <Searchbar searchCountries={searchCountries} />
+        <Grid container className={classes.flex}>
+          <Grid item xs={12} sm={3} style={{ marginBottom: 20,}}>
+            <Searchbar searchCountries={searchCountries} />
+          </Grid>
+          <Grid item xs={12} sm={2}>
+            <Filter filterCountries={filterCountries} />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={2} style={{float:'right'}}>
-        <Filter filterCountries={filterCountries} />
-        </Grid>
-        </Grid>
-      <Countries countries={searchCountry} />
+        <Countries countries={searchCountry} />
       </ThemeProvider>
 
     </div>

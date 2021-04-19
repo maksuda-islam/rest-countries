@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     width: 'auto',
     height: "auto",
     justifyContent: 'center',
-    padding:10,
+    padding: 10,
   },
   nav: {
     textDecoration: "None"
@@ -66,11 +66,11 @@ export default function CountryDetails(props) {
           </NavLink>
         </Grid>
         <Grid item lg={4} xs={12}>
-        {countryByCode.flag === undefined ? (
-         <Skeleton variant="rect" width={300} height={218} />
-        ) : (
-          <img className={classes.img} alt="complex" src={countryByCode.flag}  />
-        )}
+          {countryByCode.flag === undefined ? (
+            <Skeleton variant="rect" width={300} height={218} />
+          ) : (
+            <img className={classes.img} alt="complex" src={countryByCode.flag} />
+          )}
         </Grid>
         <Grid item lg={4} xs={12}>
           <Typography gutterBottom variant="h4">
@@ -80,32 +80,32 @@ export default function CountryDetails(props) {
             <Typography>
               <strong>Native Name : </strong>
               {countryByCode.nativeName === undefined ?
-              <CircularProgress />
-              : countryByCode.nativeName}
+                <CircularProgress />
+                : countryByCode.nativeName}
             </Typography>
             <Typography>
               <strong>Population : </strong>
               {countryByCode.population === undefined ?
-              <CircularProgress />
-              : countryByCode.population}
+                <CircularProgress />
+                : countryByCode.population}
             </Typography>
             <Typography>
               <strong>Region : </strong>
               {countryByCode.region === undefined ?
-              <CircularProgress />
-              : countryByCode.region}
+                <CircularProgress />
+                : countryByCode.region}
             </Typography>
             <Typography>
               <strong>Sub Region : </strong>
               {countryByCode.subregion === undefined ?
-              <CircularProgress />
-              : countryByCode.subregion}
+                <CircularProgress />
+                : countryByCode.subregion}
             </Typography>
             <Typography>
               <strong>Capital : </strong>
               {countryByCode.capital === undefined ?
-              <CircularProgress />
-              : countryByCode.capital}
+                <CircularProgress />
+                : countryByCode.capital}
             </Typography>
           </Typography>
 

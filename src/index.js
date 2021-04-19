@@ -17,11 +17,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import NightsStayIcon from "@material-ui/icons/NightsStay";
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    margin: 0
-  },
-
+const useStyles = makeStyles(() => ({
   toolbar: {
     justifyContent: "space-between"
   }
@@ -39,6 +35,7 @@ export default function Root() {
 
   useEffect(() => {
     setDarkMode(prefersDarkMode);
+    console.log(theme)
   }, [prefersDarkMode]);
 
   const handleDarkModeToggle = () => {
@@ -51,7 +48,7 @@ export default function Root() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div>
-        <Paper position="static" className={classes.paper}>
+        <Paper position="static">
           <Toolbar className={classes.toolbar}>
             <Typography variant="h5">Where in the world?</Typography>
             <Button onClick={handleDarkModeToggle}>

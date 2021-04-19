@@ -28,72 +28,72 @@ const Countries = (props) => {
   const classes = useStyles();
 
   return (
-  (props.countries.length === 0) ? <h1>Not Found</h1> :
-    <div className={classes.root}>
-      <Grid
-        container
-        spacing={2}
-        direction="row"
-        justify="flex-start"
-        alignItems="flex-start"
-      >
-        {props.countries.map((country) => {
-          const {
-            numericCode,
-            flag,
-            name,
-            population,
-            region,
-            capital,
-            alpha3Code
-          } = country;
+    (props.countries.length === 0) ?  <Typography variant="h1">Not Found</Typography> :
+      <div className={classes.root}>
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justify="flex-start"
+          alignItems="flex-start"
+        >
+          {props.countries.map((country) => {
+            const {
+              numericCode,
+              flag,
+              name,
+              population,
+              region,
+              capital,
+              alpha3Code
+            } = country;
 
-          return (
-            <Grid item xs={12} sm={6} md={3} key={numericCode}>
-              <NavLink className={classes.nav} to={`/${alpha3Code}`}>
-                <Card>
-                  <CardActionArea>
-                    <CardMedia className={classes.media} image={flag} />
-                    <CardContent className={classes.content}>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="h2"
-                        className={classes.title}
-                      >
-                        {name}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        Population: {population}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        Region: {region}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        Capital: {capital}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                  <CardActions></CardActions>
-                </Card>
-              </NavLink>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </div>
+            return (
+              <Grid item xs={12} sm={6} md={3} key={numericCode}>
+                <NavLink className={classes.nav} to={`/${alpha3Code}`}>
+                  <Card>
+                    <CardActionArea>
+                      <CardMedia className={classes.media} image={flag} />
+                      <CardContent className={classes.content}>
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="h2"
+                          className={classes.title}
+                        >
+                          {name}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                        >
+                          Population: {population}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                        >
+                          Region: {region}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                        >
+                          Capital: {capital}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions></CardActions>
+                  </Card>
+                </NavLink>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </div>
   );
 };
 

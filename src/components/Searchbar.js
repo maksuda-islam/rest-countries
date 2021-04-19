@@ -4,7 +4,7 @@ import SearchBar from "material-ui-search-bar";
 
 function Searchbar(props) {
   return (
-    <div  variant="body1">
+    <div variant="body1">
       <SearchBar
         placeholder="Search by Country Name"
         onChange={(newValue) => {
