@@ -3,12 +3,20 @@ import Countries from './components/Countries';
 import Filter from './components/Filter';
 import { makeStyles } from '@material-ui/core/styles';
 import Searchbar from "./components/Searchbar";
+import Grid from '@material-ui/core/Grid';
 
 import { ThemeProvider } from "@material-ui/core/styles";
 
 const url = 'https://restcountries.eu/rest/v2/all';
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
+    gridGap: theme.spacing(3),
+    justifyContent:'space-between',
+    width: '100%'
+  },
   root: {
     padding: 30,
 
@@ -17,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 30,
   },
   flex: {
-    display: 'flex',
     justifyContent: 'space-between',
   },
   toolbar: {
@@ -60,10 +67,14 @@ function App() {
 
     <div className={classes.root}>
       <ThemeProvider>
-      <div className={classes.flex}>
-        <Searchbar searchCountries={searchCountries} />
+      <Grid container className={classes.flex}>
+      <Grid item xs={12} sm={3} style={{marginBottom:20,float:'left'}}>
+      <Searchbar searchCountries={searchCountries} />
+        </Grid>
+        <Grid item xs={12} sm={2} style={{float:'right'}}>
         <Filter filterCountries={filterCountries} />
-      </div>
+        </Grid>
+        </Grid>
       <Countries countries={searchCountry} />
       </ThemeProvider>
 

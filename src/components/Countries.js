@@ -28,6 +28,7 @@ const Countries = (props) => {
   const classes = useStyles();
 
   return (
+  (props.countries.length === 0) ? <h1>Not Found</h1> :
     <div className={classes.root}>
       <Grid
         container

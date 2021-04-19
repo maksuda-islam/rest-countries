@@ -16,9 +16,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 50
   },
   img: {
-    maxWidth: 350,
-    minWidth: "100%",
-    height: "auto"
+    maxWidth: 380,
+    width: 'auto',
+    height: "auto",
+    justifyContent: 'center',
+    padding:10,
   },
   nav: {
     textDecoration: "None"
@@ -59,9 +61,8 @@ export default function CountryDetails(props) {
         <Grid item lg={12} xs={12}>
           <NavLink className={classes.nav} to="/">
             <Button variant="outlined" className={classes.buttonStyle}>
-              {" "}
               <ArrowBackIcon /> Back
-            </Button>{" "}
+            </Button>
           </NavLink>
         </Grid>
         <Grid item lg={4} xs={12}>
@@ -77,7 +78,6 @@ export default function CountryDetails(props) {
           </Typography>
           <Typography variant="body2" gutterBottom>
             <Typography>
-              {" "}
               <strong>Native Name : </strong>
               {countryByCode.nativeName === undefined ?
               <CircularProgress />
