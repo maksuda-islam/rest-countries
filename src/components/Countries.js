@@ -8,6 +8,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { NavLink } from "react-router-dom";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,9 @@ const Countries = (props) => {
   const classes = useStyles();
 
   return (
+    (props.countries.length) === 0 ?
+      <CircularProgress justify="center" />
+      :
       <div className={classes.root}>
         <Grid
           container

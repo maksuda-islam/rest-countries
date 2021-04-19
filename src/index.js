@@ -4,7 +4,6 @@ import App from "./App";
 import CountryDetails from "./components/CountryDetails";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   createMuiTheme,

@@ -16,9 +16,8 @@ const Footer = () => {
     return (
         <div className={classes.root}>
             <Paper className={classes.paper} elevation={0}>
-                <CopyrightIcon style={{ fontSize: 'small' }} /> Copyright 2021. Challenge by frontend Mentor. Coded by Maksuda Islam Lima.
-
-
+                <CopyrightIcon style={{ fontSize: 'small' }} />
+                Copyright 2021. Challenge by frontend Mentor. Coded by Maksuda Islam Lima.
             </Paper>
         </div>
     )
