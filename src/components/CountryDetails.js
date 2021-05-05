@@ -55,207 +55,103 @@ export default function CountryDetails(props) {
   }, [countryByCodeURL]);
 
   return (
-      <Grid lg={12} item container spacing={3} className={classes.root}>
-        <Grid item lg={12} xs={12}>
-          <NavLink className={classes.nav} to="/">
-            <Button variant="outlined" className={classes.buttonStyle}>
-              <ArrowBackIcon /> Back
+    <Grid lg={12} item container spacing={3} className={classes.root}>
+      <Grid item lg={12} xs={12}>
+        <NavLink className={classes.nav} to="/">
+          <Button variant="outlined" className={classes.buttonStyle}>
+            <ArrowBackIcon /> Back
             </Button>
-          </NavLink>
-        </Grid>
-        <Grid item lg={4} xs={12} container justify="center" style={{ padding: 10 }}>
-          {countryByCode.flag === undefined ? (
-            <Skeleton variant="rect" width={300} height={218} />
-          ) : (
-            <img className={classes.img} alt="complex" src={countryByCode.flag} />
-          )}
-        </Grid>
-        <Grid item lg={4} xs={12}>
-          <Typography gutterBottom variant="h4">
-            <strong>{countryByCode.name}</strong>
-          </Typography>
-          <Typography variant="body2" gutterBottom>
-            <Typography>
-              <strong>Native Name : </strong>
-              {countryByCode.nativeName === undefined ?
-                <CircularProgress />
-                : countryByCode.nativeName}
-            </Typography>
-            <Typography>
-              <strong>Population : </strong>
-              {countryByCode.population === undefined ?
-                <CircularProgress />
-                : countryByCode.population}
-            </Typography>
-            <Typography>
-              <strong>Region : </strong>
-              {countryByCode.region === undefined ?
-                <CircularProgress />
-                : countryByCode.region}
-            </Typography>
-            <Typography>
-              <strong>Sub Region : </strong>
-              {countryByCode.subregion === undefined ?
-                <CircularProgress />
-                : countryByCode.subregion}
-            </Typography>
-            <Typography>
-              <strong>Capital : </strong>
-              {countryByCode.capital === undefined ?
-                <CircularProgress />
-                : countryByCode.capital}
-            </Typography>
-          </Typography>
-
-          <Typography variant="body3" style={{ cursor: "pointer" }}>
-            <strong>Border Countries : </strong>
-            {countryByCode.borders === undefined
-              ? <CircularProgress />
-              : countryByCode.borders.map((e) => (
-                <NavLink
-                  className={classes.nav}
-                  to={{ pathname: "/" + e }}
-                  onClick={() => {
-                    setCountryByCodeURL(CodeURL + "/" + e);
-                  }}
-                >
-                  <Button variant="outlined" style={{ margin: 3 }}>
-                    {e}
-                  </Button>
-                </NavLink>
-              ))}
-          </Typography>
-        </Grid>
-        <Grid item lg={4} xs={12}>
-          <Typography variant="body2" style={{ marginTop: 40 }} gutterBottom>
-            <Typography>
-              <strong>Top Level Domain : </strong>
-              {countryByCode.topLevelDomain === undefined
-                ? <CircularProgress />
-                : countryByCode.topLevelDomain.join(", ")}
-            </Typography>
-            <Typography>
-              <strong>Currencies : </strong>
-              {countryByCode.currencies === undefined
-                ? <CircularProgress />
-                : countryByCode.currencies.map((e) => e.name).join(", ")}
-            </Typography>
-            <Typography>
-              <strong>Languages : </strong>
-              {countryByCode.languages === undefined
-                ? <CircularProgress />
-                : countryByCode.languages.map((e) => e.name).join(", ")}
-            </Typography>
-          </Typography>
-        </Grid>
-
-
-
-
-
-
-
-
-
-
-
-        {/* <Grid item lg={4} xs={12}>
-        {countryByCode.nativeName &&  countryByCode.population && countryByCode.region && 
-        countryByCode.subregion  && countryByCode.capital === undefined} ? <CircularProgress /> : 
-          <Typography gutterBottom variant="h4">
-            <strong>{countryByCode.name}</strong>
-          </Typography>
-          <Typography variant="body2" gutterBottom>
-            <Typography>
-              <strong>Native Name : </strong>
-              {countryByCode.nativeName === undefined ?
-                <CircularProgress />
-                : countryByCode.nativeName}
-            </Typography>
-            <Typography>
-              <strong>Population : </strong>
-              {countryByCode.population === undefined ?
-                <CircularProgress />
-                : countryByCode.population}
-            </Typography>
-            <Typography>
-              <strong>Region : </strong>
-              {countryByCode.region === undefined ?
-                <CircularProgress />
-                : countryByCode.region}
-            </Typography>
-            <Typography>
-              <strong>Sub Region : </strong>
-              {countryByCode.subregion === undefined ?
-                <CircularProgress />
-                : countryByCode.subregion}
-            </Typography>
-            <Typography>
-              <strong>Capital : </strong>
-              {countryByCode.capital === undefined ?
-                <CircularProgress />
-                : countryByCode.capital}
-            </Typography>
-          </Typography>
-
-          <Typography variant="body3" style={{ cursor: "pointer" }}>
-            <strong>Border Countries : </strong>
-            {countryByCode.borders === undefined
-              ? <CircularProgress />
-              : countryByCode.borders.map((e) => (
-                <NavLink
-                  className={classes.nav}
-                  to={{ pathname: "/" + e }}
-                  onClick={() => {
-                    setCountryByCodeURL(CodeURL + "/" + e);
-                  }}
-                >
-                  <Button variant="outlined" style={{ margin: 3 }}>
-                    {e}
-                  </Button>
-                </NavLink>
-              ))}
-          </Typography>
-        </Grid> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </NavLink>
       </Grid>
+      <Grid item lg={4} xs={12} container justify="center" style={{ padding: 10 }}>
+        {countryByCode.flag === undefined ? (
+          <Skeleton variant="rect" width={300} height={218} />
+        ) : (
+          <img className={classes.img} alt="complex" src={countryByCode.flag} />
+        )}
+      </Grid>
+      {countryByCode.name === undefined ? <CircularProgress /> : (
+        <>
+          <Grid item lg={4} xs={12}>
+            <Typography gutterBottom variant="h4">
+              <strong>{countryByCode.name}</strong>
+            </Typography>
+            <Typography variant="body2" gutterBottom>
+              <Typography>
+                <strong>Native Name : </strong>
+                {countryByCode.nativeName === undefined ?
+                  <CircularProgress />
+                  : countryByCode.nativeName}
+              </Typography>
+              <Typography>
+                <strong>Population : </strong>
+                {countryByCode.population === undefined ?
+                  <CircularProgress />
+                  : countryByCode.population}
+              </Typography>
+              <Typography>
+                <strong>Region : </strong>
+                {countryByCode.region === undefined ?
+                  <CircularProgress />
+                  : countryByCode.region}
+              </Typography>
+              <Typography>
+                <strong>Sub Region : </strong>
+                {countryByCode.subregion === undefined ?
+                  <CircularProgress />
+                  : countryByCode.subregion}
+              </Typography>
+              <Typography>
+                <strong>Capital : </strong>
+                {countryByCode.capital === undefined ?
+                  <CircularProgress />
+                  : countryByCode.capital}
+              </Typography>
+            </Typography>
 
+            <Typography variant="body3" style={{ cursor: "pointer" }}>
+              <strong>Border Countries : </strong>
+              {countryByCode.borders === undefined
+                ? <CircularProgress />
+                : countryByCode.borders.map((e) => (
+                  <NavLink
+                    className={classes.nav}
+                    to={{ pathname: "/" + e }}
+                    onClick={() => {
+                      setCountryByCodeURL(CodeURL + "/" + e);
+                    }}
+                  >
+                    <Button variant="outlined" style={{ margin: 3 }}>
+                      {e}
+                    </Button>
+                  </NavLink>
+                ))}
+            </Typography>
+          </Grid>
+          <Grid item lg={4} xs={12}>
+            <Typography variant="body2" style={{ marginTop: 40 }} gutterBottom>
+              <Typography>
+                <strong>Top Level Domain : </strong>
+                {countryByCode.topLevelDomain === undefined
+                  ? <CircularProgress />
+                  : countryByCode.topLevelDomain.join(", ")}
+              </Typography>
+              <Typography>
+                <strong>Currencies : </strong>
+                {countryByCode.currencies === undefined
+                  ? <CircularProgress />
+                  : countryByCode.currencies.map((e) => e.name).join(", ")}
+              </Typography>
+              <Typography>
+                <strong>Languages : </strong>
+                {countryByCode.languages === undefined
+                  ? <CircularProgress />
+                  : countryByCode.languages.map((e) => e.name).join(", ")}
+              </Typography>
+            </Typography>
+          </Grid>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </>)}
+    </Grid>
   );
 }
