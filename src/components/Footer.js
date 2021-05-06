@@ -8,7 +8,8 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center', height: 60, padding: 10,
     },
     root: {
-        marginTop: "calc(12% + 60px)",
+        marginTop: "calc(30vh + 64px)",
+        // minHeight: "calc(100vh - 64px * 2)"
     }
 }));
 const Footer = () => {

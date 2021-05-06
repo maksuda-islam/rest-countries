@@ -53,7 +53,7 @@ export default function Root() {
         <Button onClick = { handleDarkModeToggle }>
         <NightsStayIcon>
         </NightsStayIcon>
-        Dark Mode </Button>  
+        Change Mode </Button>  
         </Toolbar> 
         </Paper>
         <Router basename = "/rest-countries">
