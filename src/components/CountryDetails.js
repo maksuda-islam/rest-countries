@@ -11,13 +11,15 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const useStyles = makeStyles((theme) => ({
   root: {
     overflow: "hidden",
-    padding: theme.spacing(6)
+    padding: theme.spacing(5),
+    fontSize: 18
   },
   buttonStyle: {
-    marginBottom: 50
+    marginBottom: 50,
   },
   img: {
-    maxWidth: 450,
+    maxWidth: 680,
+    width: '100%',
     height: "auto",
     padding: 10,
   },
@@ -55,98 +57,80 @@ export default function CountryDetails(props) {
   }, [countryByCodeURL]);
 
   return (
-    <Grid lg={12} item container spacing={3} className={classes.root}>
-      <Grid item lg={12} xs={12}>
+    <Grid lg={12} item container spacing={1} className={classes.root}>
+      <Grid item lg={12} xs={12} container>
         <NavLink className={classes.nav} to="/">
           <Button variant="outlined" className={classes.buttonStyle}>
             <ArrowBackIcon /> Back
             </Button>
         </NavLink>
       </Grid>
-      <Grid item lg={4} xs={12} container justify="center" style={{ padding: 10 }}>
+      <Grid item lg={6} xs={12} >
         {countryByCode.flag === undefined ? (
-          <Skeleton variant="rect" width={410} height={250} />
+          <Skeleton variant="rect" width={650} height={250} />
         ) : (
           <img className={classes.img} alt="complex" src={countryByCode.flag} />
         )}
       </Grid>
       {countryByCode.name === undefined ? <CircularProgress /> : (
         <>
-          <Grid item lg={4} xs={12}>
-            <Typography gutterBottom variant="h4">
+          <Grid item lg={3} xs={12}>
+            <Typography gutterBottom variant="h4" style={{ marginTop: 18 }}>
               <strong>{countryByCode.name}</strong>
             </Typography>
             <Typography variant="body2" gutterBottom>
-              <Typography>
-                <strong>Native Name : </strong>
-                {countryByCode.nativeName === undefined ?
-                  <CircularProgress />
-                  : countryByCode.nativeName}
+              <Typography style={{ fontSize: 18 }}>
+                <strong> Native Name: </strong>
+                <em>{countryByCode.nativeName}</em>
               </Typography>
-              <Typography>
-                <strong>Population : </strong>
-                {countryByCode.population === undefined ?
-                  <CircularProgress />
-                  : countryByCode.population}
+              <Typography style={{ fontSize: 18 }}>
+                <strong>Population: </strong>
+                <em>{countryByCode.population}</em>
               </Typography>
-              <Typography>
-                <strong>Region : </strong>
-                {countryByCode.region === undefined ?
-                  <CircularProgress />
-                  : countryByCode.region}
+              <Typography style={{ fontSize: 18 }}>
+                <strong>Region: </strong>
+                <em>{countryByCode.region}</em>
               </Typography>
-              <Typography>
-                <strong>Sub Region : </strong>
-                {countryByCode.subregion === undefined ?
-                  <CircularProgress />
-                  : countryByCode.subregion}
+              <Typography style={{ fontSize: 18 }}>
+                <strong>Sub Region: </strong>
+                <em>{countryByCode.subregion}</em>
               </Typography>
-              <Typography>
-                <strong>Capital : </strong>
-                {countryByCode.capital === undefined ?
-                  <CircularProgress />
-                  : countryByCode.capital}
+              <Typography style={{ fontSize: 18 }}>
+                <strong>Capital: </strong>
+                <em>{countryByCode.capital}</em>
               </Typography>
             </Typography>
 
-            <Typography variant="body3" style={{ cursor: "pointer" }}>
-              <strong>Border Countries : </strong>
-              {countryByCode.borders === undefined
-                ? <CircularProgress />
-                : countryByCode.borders.map((e) => (
-                  <NavLink
-                    className={classes.nav}
-                    to={{ pathname: "/" + e }}
-                    onClick={() => {
-                      setCountryByCodeURL(CodeURL + "/" + e);
-                    }}
-                  >
-                    <Button variant="outlined" style={{ margin: 3 }}>
-                      {e}
-                    </Button>
-                  </NavLink>
-                ))}
+            <Typography variant="body3" style={{ cursor: "pointer" }} >
+              <strong>Border Countries: </strong>
+              {countryByCode.borders.map((e) => (
+                <NavLink
+                  className={classes.nav}
+                  to={{ pathname: "/" + e }}
+                  onClick={() => {
+                    setCountryByCodeURL(CodeURL + "/" + e);
+                  }}
+                >
+                  <Button variant="outlined" style={{ margin: 3 }}>
+                    {e}
+                  </Button>
+                </NavLink>
+              ))}
             </Typography>
           </Grid>
-          <Grid item lg={4} xs={12}>
-            <Typography variant="body2" style={{ marginTop: 40 }} gutterBottom>
-              <Typography>
-                <strong>Top Level Domain : </strong>
-                {countryByCode.topLevelDomain === undefined
-                  ? <CircularProgress />
-                  : countryByCode.topLevelDomain.join(", ")}
+          <Grid item lg={3} xs={12}>
+            <Typography variant="body2" style={{ marginTop: 70 }} gutterBottom>
+              <Typography style={{ fontSize: 18 }}>
+                <strong>Top Level Domain: </strong>
+                <em>{countryByCode.topLevelDomain.join(", ")}</em>
               </Typography>
-              <Typography>
-                <strong>Currencies : </strong>
-                {countryByCode.currencies === undefined
-                  ? <CircularProgress />
-                  : countryByCode.currencies.map((e) => e.name).join(", ")}
+              <Typography style={{ fontSize: 18 }}>
+                <strong>Currencies: </strong>
+                <em>{countryByCode.currencies.map((e) => e.name).join(", ")}</em>
               </Typography>
-              <Typography>
-                <strong>Languages : </strong>
-                {countryByCode.languages === undefined
-                  ? <CircularProgress />
-                  : countryByCode.languages.map((e) => e.name).join(", ")}
+              <Typography style={{ fontSize: 18 }}>
+                <strong>Languages: </strong>
+                <em>{countryByCode.languages.map((e) => e.name).join(", ")}</em>
               </Typography>
             </Typography>
           </Grid>
@@ -155,3 +139,4 @@ export default function CountryDetails(props) {
     </Grid>
   );
 }
+
