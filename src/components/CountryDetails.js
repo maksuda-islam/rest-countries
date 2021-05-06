@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 50
   },
   img: {
-    maxWidth: 470,
+    maxWidth: 450,
     height: "auto",
     padding: 10,
   },
@@ -65,7 +65,7 @@ export default function CountryDetails(props) {
       </Grid>
       <Grid item lg={4} xs={12} container justify="center" style={{ padding: 10 }}>
         {countryByCode.flag === undefined ? (
-          <Skeleton variant="rect" width={300} height={218} />
+          <Skeleton variant="rect" width={410} height={250} />
         ) : (
           <img className={classes.img} alt="complex" src={countryByCode.flag} />
         )}
