@@ -66,7 +66,7 @@ export default function CountryDetails(props) {
       </Grid>
       <Grid item lg={6} xs={12} >
         {countryByCode.flag === undefined ? (
-          <Skeleton variant="rect" width={650} height={250} />
+          <Skeleton variant="rect" width={400} height={250} />
         ) : (
           <img className={classes.img} alt="complex" src={countryByCode.flag} />
         )}
