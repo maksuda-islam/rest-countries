@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 680,
     width: '100%',
     height: "auto",
-    padding: 10,
   },
   nav: {
     textDecoration: "None"
