@@ -5,10 +5,14 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 
     paper: {
-        textAlign: 'center', height: 60, padding: 10,
+        textAlign: 'center',  padding: 10,
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
+        height: 60,
     },
     root: {
-        marginTop: "calc(30vh + 64px)",
+        marginTop: "calc(50vh - 64px * 2 )",
         // minHeight: "calc(100vh - 64px * 2)"
     }
 }));

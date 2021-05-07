@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 18
   },
   buttonStyle: {
-    marginBottom: 50,
+    marginBottom: 30,
   },
   img: {
-    maxWidth: 680,
+    maxWidth: 600,
     width: '100%',
     height: "auto",
   },
@@ -64,7 +64,7 @@ export default function CountryDetails(props) {
             </Button>
         </NavLink>
       </Grid>
-      <Grid item lg={6} xs={12} >
+      <Grid item lg={5} xs={12} >
         {countryByCode.flag === undefined ? (
           <Skeleton variant="rect" width={400} height={250} />
         ) : (
@@ -73,30 +73,30 @@ export default function CountryDetails(props) {
       </Grid>
       {countryByCode.name === undefined ? <CircularProgress /> : (
         <>
-          <Grid item lg={3} xs={12}>
-            <Typography gutterBottom variant="h4" style={{ marginTop: 18 }}>
+          <Grid item lg={3} xs={12} style={{padding:18}}>
+            <Typography gutterBottom variant="h4">
               <strong>{countryByCode.name}</strong>
             </Typography>
             <Typography variant="body2" gutterBottom>
               <Typography style={{ fontSize: 18 }}>
                 <strong> Native Name: </strong>
-                <em>{countryByCode.nativeName}</em>
+                <span style={{fontWeight:200}}>{countryByCode.nativeName}</span>
               </Typography>
               <Typography style={{ fontSize: 18 }}>
                 <strong>Population: </strong>
-                <em>{countryByCode.population}</em>
+                <span style={{fontWeight:200}}>{countryByCode.population}</span>
               </Typography>
               <Typography style={{ fontSize: 18 }}>
                 <strong>Region: </strong>
-                <em>{countryByCode.region}</em>
+                <span style={{fontWeight:200}}>{countryByCode.region}</span>
               </Typography>
               <Typography style={{ fontSize: 18 }}>
                 <strong>Sub Region: </strong>
-                <em>{countryByCode.subregion}</em>
+                <span style={{fontWeight:200}}>{countryByCode.subregion}</span>
               </Typography>
               <Typography style={{ fontSize: 18 }}>
                 <strong>Capital: </strong>
-                <em>{countryByCode.capital}</em>
+                <span style={{fontWeight:200}}>{countryByCode.capital}</span>
               </Typography>
             </Typography>
 
@@ -117,19 +117,19 @@ export default function CountryDetails(props) {
               ))}
             </Typography>
           </Grid>
-          <Grid item lg={3} xs={12}>
-            <Typography variant="body2" style={{ marginTop: 70 }} gutterBottom>
+          <Grid item lg={3} xs={12} style={{padding:18}}>
+            <Typography variant="body2" style={{ marginTop: 50 }} gutterBottom>
               <Typography style={{ fontSize: 18 }}>
                 <strong>Top Level Domain: </strong>
-                <em>{countryByCode.topLevelDomain.join(", ")}</em>
+                <span style={{fontWeight:200}}>{countryByCode.topLevelDomain.join(", ")}</span>
               </Typography>
               <Typography style={{ fontSize: 18 }}>
                 <strong>Currencies: </strong>
-                <em>{countryByCode.currencies.map((e) => e.name).join(", ")}</em>
+                <span style={{fontWeight:200}}>{countryByCode.currencies.map((e) => e.name).join(", ")}</span>
               </Typography>
               <Typography style={{ fontSize: 18 }}>
                 <strong>Languages: </strong>
-                <em>{countryByCode.languages.map((e) => e.name).join(", ")}</em>
+                <span style={{fontWeight:200}}>{countryByCode.languages.map((e) => e.name).join(", ")}</span>
               </Typography>
             </Typography>
           </Grid>
