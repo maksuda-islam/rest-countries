@@ -6,9 +6,9 @@ const useStyles = makeStyles((theme) => ({
 
     paper: {
         textAlign: 'center',  padding: 10,
-        position: 'fixed',
-        bottom: 0,
-        width: '100%',
+        // position: 'fixed',
+        // bottom: 0,
+        // width: '100%',
         height: 60,
     },
     root: {
