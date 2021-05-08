@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
   },
   nav: {
     textDecoration: "None"
-  }
+  },
+
 }));
 
 const CodeURL = "https://restcountries.eu/rest/v2/alpha/";
@@ -59,9 +60,9 @@ export default function CountryDetails(props) {
   return (
     <div>
       <Helmet>
-        {countryByCode.name === undefined ? <title> Rest Countries </title> : <title>Rest Countries | {countryByCode.name} </title>}
+        {countryByCode.name === undefined ? <title> Country </title> : <title>Countries | {countryByCode.name} </title>}
       </Helmet>
-      <Grid lg={12} item container spacing={1} className={classes.root}>
+      <Grid lg={12} item container spacing={3} className={classes.root}>
         <Grid item lg={12} xs={12} container>
           <NavLink className={classes.nav} to="/">
             <Button variant="outlined" className={classes.buttonStyle}>
@@ -76,12 +77,17 @@ export default function CountryDetails(props) {
             <img className={classes.img} alt="complex" src={countryByCode.flag} />
           )}
         </Grid>
+
+        {/* PARENT DIV 7 STARTS */}
+        
         {countryByCode.name === undefined ? <CircularProgress /> : (
-          <>
-            <Grid item lg={3} xs={12} style={{ padding: 18 }}>
-              <Typography gutterBottom variant="h4">
+          <Grid item container spacing={0} lg={7} xs={12} direction='row'>
+            <Grid item lg={12} xs={12}> 
+            <Typography gutterBottom variant="h4">
                 <strong>{countryByCode.name}</strong>
               </Typography>
+            </Grid>
+            <Grid item lg={5} xs={12} alignSelf='flex-start'>
               <Typography variant="body2" gutterBottom>
                 <Typography style={{ fontSize: 18 }}>
                   <strong> Native Name: </strong>
@@ -104,7 +110,26 @@ export default function CountryDetails(props) {
                   <span style={{ fontWeight: 200 }}>{countryByCode.capital}</span>
                 </Typography>
               </Typography>
+              </Grid>
+              
+            <Grid item lg={5} xs={12} >
+              <Typography variant="body2" gutterBottom>
+                <Typography style={{ fontSize: 18 }}>
+                  <strong>Top Level Domain: </strong>
+                  <span style={{ fontWeight: 200 }}>{countryByCode.topLevelDomain.join(", ")}</span>
+                </Typography>
+                <Typography style={{ fontSize: 18 }}>
+                  <strong>Currencies: </strong>
+                  <span style={{ fontWeight: 200 }}>{countryByCode.currencies.map((e) => e.name).join(", ")}</span>
+                </Typography>
+                <Typography style={{ fontSize: 18 }}>
+                  <strong>Languages: </strong>
+                  <span style={{ fontWeight: 200 }}>{countryByCode.languages.map((e) => e.name).join(", ")}</span>
+                </Typography>
+              </Typography>
+            </Grid>
 
+            <Grid item lg={7} xs={12}>
               <Typography variant="body3" style={{ cursor: "pointer" }} >
                 <strong>Border Countries: </strong>
                 {countryByCode.borders.map((e) => (
@@ -122,24 +147,7 @@ export default function CountryDetails(props) {
                 ))}
               </Typography>
             </Grid>
-            <Grid item lg={3} xs={12} style={{ padding: 18 }}>
-              <Typography variant="body2" style={{ marginTop: 50 }} gutterBottom>
-                <Typography style={{ fontSize: 18 }}>
-                  <strong>Top Level Domain: </strong>
-                  <span style={{ fontWeight: 200 }}>{countryByCode.topLevelDomain.join(", ")}</span>
-                </Typography>
-                <Typography style={{ fontSize: 18 }}>
-                  <strong>Currencies: </strong>
-                  <span style={{ fontWeight: 200 }}>{countryByCode.currencies.map((e) => e.name).join(", ")}</span>
-                </Typography>
-                <Typography style={{ fontSize: 18 }}>
-                  <strong>Languages: </strong>
-                  <span style={{ fontWeight: 200 }}>{countryByCode.languages.map((e) => e.name).join(", ")}</span>
-                </Typography>
-              </Typography>
-            </Grid>
-
-          </>)}
+          </Grid>)}
       </Grid>
     </div>
   );

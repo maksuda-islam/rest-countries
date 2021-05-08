@@ -65,7 +65,7 @@ function App() {
   return (
     <div>
       <Helmet>
-        <title>Rest Countries</title>
+        <title>Countries</title>
       </Helmet>
 
 

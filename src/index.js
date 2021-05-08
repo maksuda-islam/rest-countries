@@ -37,8 +37,30 @@ export default function Root() {
     const theme = createMuiTheme({
         palette: {
             type: darkMode ? "dark" : "light"
-        }
+        },
     });
+    theme.typography.h5 = {
+        fontSize: '1.5rem',
+        '@media (min-width:600px)': {
+            fontSize: '1.5rem',
+            fontWeight: 400,
+        },
+        [theme.breakpoints.down('md')]: {
+            fontSize: '1.2rem',
+            fontWeight: 250,
+        },
+    };
+    theme.typography.h6 = {
+        fontSize: '1rem',
+        '@media (min-width:600px)': {
+            fontSize: '1rem',
+            fontWeight: 400,
+        },
+        [theme.breakpoints.down('md')]: {
+            fontSize: '0.9rem',
+            fontWeight: 250,
+        },
+    };
 
     useEffect(() => {
         setDarkMode(prefersDarkMode);
@@ -57,11 +79,11 @@ export default function Root() {
             <div className={classes.root}>
                 <Paper position="static">
                     <Toolbar className={classes.toolbar}>
-                        <Typography variant="h5" > Where in the world ? </Typography>
+                        <Typography variant="h5"> Where in the world ? </Typography>
                         <Button onClick={handleDarkModeToggle}>
                             <NightsStayIcon>
                             </NightsStayIcon>
-        Dark Mode </Button>
+                            <Typography variant="h6">Dark Mode </Typography></Button>
                     </Toolbar>
                 </Paper>
                 <div className={classes.wrapper} >
