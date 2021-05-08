@@ -43,7 +43,7 @@ export default function Root() {
         fontSize: '1.5rem',
         '@media (min-width:600px)': {
             fontSize: '1.5rem',
-            fontWeight: 400,
+            fontWeight: 450,
         },
         [theme.breakpoints.down('md')]: {
             fontSize: '1.2rem',
@@ -54,7 +54,7 @@ export default function Root() {
         fontSize: '1rem',
         '@media (min-width:600px)': {
             fontSize: '1rem',
-            fontWeight: 400,
+            fontWeight: 450,
         },
         [theme.breakpoints.down('md')]: {
             fontSize: '0.9rem',
