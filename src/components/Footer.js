@@ -5,16 +5,13 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 
     paper: {
-        textAlign: 'center',  padding: 10,
-        height: 60,
-        position:'relative',
-        left:0,
-        bottom:0,
-        right:0,
+        textAlign: 'center',  paddingTop: 20, paddingBottom: 20, paddingLeft: 10, paddingRight: 10
     },
     root: {
-        // marginTop: "calc(50vh - 64px * 2 )",
-        // minHeight: "calc(100vh - 64px * 2)"
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        height: '2.5rem', 
     }
 }));
 const Footer = () => {

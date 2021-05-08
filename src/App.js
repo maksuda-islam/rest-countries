@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     padding: 30,
-    minHeight: "calc(100vh + 64px * 2)",
-    paddingBottom:64,
-    position: 'relative',
+    // minHeight: "calc(100vh + 64px * 2)",
+    // paddingBottom:64,
+    // position: 'relative',
 
   },
   paper: {

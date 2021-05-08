@@ -13,9 +13,6 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     fontSize: 18,
     padding: 30,
-    minHeight: "calc(100v)",
-    position: 'relative',
-    paddingBottom: 250,
   },
   buttonStyle: {
     marginBottom: 30,

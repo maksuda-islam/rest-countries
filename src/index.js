@@ -19,6 +19,14 @@ import NightsStayIcon from "@material-ui/icons/NightsStay";
 const useStyles = makeStyles(() => ({
     toolbar: {
         justifyContent: "space-between"
+    },
+    root: {
+        position: 'relative',
+        minHeight: '100vh',
+
+    },
+    wrapper: {
+        paddingBottom: '3rem',
     }
 }));
 
@@ -42,32 +50,34 @@ export default function Root() {
 
     const classes = useStyles();
 
-    return ( 
-   
-    <ThemeProvider theme = { theme }>
-        <CssBaseline />
-        <div>
-        <Paper position = "static">
-        <Toolbar className = { classes.toolbar }>
-        <Typography variant = "h5" > Where in the world ? </Typography>  
-        <Button onClick = { handleDarkModeToggle }>
-        <NightsStayIcon>
-        </NightsStayIcon>
-        Dark Mode </Button>  
-        </Toolbar> 
-        </Paper>
-        <Router basename = "/rest-countries">
-        <Switch>
-        <Route path = "/"
-        exact component = { App }/>   
-        <Route path = "/:alpha3Code"
-        exact component = { CountryDetails }/>  
-        </Switch> 
-        <Footer/>
-        </Router>  
-        </div>
+    return (
+
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <div className={classes.root}>
+                <Paper position="static">
+                    <Toolbar className={classes.toolbar}>
+                        <Typography variant="h5" > Where in the world ? </Typography>
+                        <Button onClick={handleDarkModeToggle}>
+                            <NightsStayIcon>
+                            </NightsStayIcon>
+        Dark Mode </Button>
+                    </Toolbar>
+                </Paper>
+                <div className={classes.wrapper} >
+                    <Router basename="/rest-countries">
+                        <Switch>
+                            <Route path="/"
+                                exact component={App} />
+                            <Route path="/:alpha3Code"
+                                exact component={CountryDetails} />
+                        </Switch>
+                    </Router>
+                </div>
+                <Footer />
+            </div>
         </ThemeProvider>
     );
 }
 
-ReactDOM.render( < Root/> , document.getElementById("root"));
+ReactDOM.render(< Root />, document.getElementById("root"));
