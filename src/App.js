@@ -4,7 +4,7 @@ import Filter from './components/Filter';
 import { makeStyles } from '@material-ui/core/styles';
 import Searchbar from "./components/Searchbar";
 import Grid from '@material-ui/core/Grid';
-
+import { Helmet } from "react-helmet";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 const url = 'https://restcountries.eu/rest/v2/all';
@@ -19,10 +19,6 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     padding: 30,
-    // minHeight: "calc(100vh + 64px * 2)",
-    // paddingBottom:64,
-    // position: 'relative',
-
   },
   paper: {
     marginBottom: 30,
@@ -37,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const [countries, setCountries] = useState([])
-  const [searchCountry, setsearchCountry] = useState([]) 
+  const [searchCountry, setsearchCountry] = useState([])
   const [empty, setEmpty] = useState(false)
   const fetchCountryData = async () => {
     const response = await fetch(url)
@@ -49,7 +45,7 @@ function App() {
   const searchCountries = (searchTerm) => {
     var search = [...countries];
     search = search.filter(a => a.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    (search.length===0 ) ? setEmpty(true) : setEmpty(false)
+    (search.length === 0) ? setEmpty(true) : setEmpty(false)
     setsearchCountry(search)
   }
 
@@ -67,22 +63,28 @@ function App() {
   const classes = useStyles();
 
   return (
+    <div>
+      <Helmet>
+        <title>Rest Countries</title>
+      </Helmet>
 
 
-    <div className={classes.root}>
-      <ThemeProvider>
-        <Grid container className={classes.flex}>
-          <Grid item xs={12} sm={3} style={{ marginBottom: 20,}}>
-            <Searchbar searchCountries={searchCountries} />
+      <div className={classes.root}>
+
+        <ThemeProvider>
+          <Grid container className={classes.flex}>
+            <Grid item xs={12} sm={3} style={{ marginBottom: 20, }}>
+              <Searchbar searchCountries={searchCountries} />
+            </Grid>
+            <Grid item xs={12} sm={2}>
+              <Filter filterCountries={filterCountries} />
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={2}>
-            <Filter filterCountries={filterCountries} />
-          </Grid>
-        </Grid>
-        {empty===true ? <h2>Not Found</h2> :
-        <Countries countries={searchCountry} /> }
-      </ThemeProvider>
+          {empty === true ? <h2>Not Found</h2> :
+            <Countries countries={searchCountry} />}
+        </ThemeProvider>
 
+      </div>
     </div>
   )
 }
