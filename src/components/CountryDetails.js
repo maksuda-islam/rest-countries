@@ -78,7 +78,7 @@ export default function CountryDetails(props) {
           )}
         </Grid>
 
-        {/* PARENT DIV 7 STARTS */}
+        {/* Nested PARENT DIV 7 STARTS */}
         
         {countryByCode.name === undefined ? <CircularProgress /> : (
           <Grid item container spacing={0} lg={7} xs={12} direction='row'>
