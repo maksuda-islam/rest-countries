@@ -60,7 +60,7 @@ export default function CountryDetails(props) {
   return (
     <div>
       <Helmet>
-        {countryByCode.name === undefined ? <title> Country </title> : <title>Countries | {countryByCode.name} </title>}
+        {countryByCode.name === undefined ? <title> Country </title> : <title>Country | {countryByCode.name} </title>}
       </Helmet>
       <Grid lg={12} item container spacing={3} className={classes.root}>
         <Grid item lg={12} xs={12} container>
