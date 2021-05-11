@@ -130,7 +130,10 @@ export default function CountryDetails(props) {
             </Grid>
 
             <Grid item lg={7} xs={12}>
-              <Typography variant="body3" style={{ cursor: "pointer" }} >
+            {countryByCode.borders.length === 0
+                ? 
+                <span></span> :
+              (<Typography variant="body3" style={{ cursor: "pointer" }} >
                 <strong>Border Countries: </strong>
                 {countryByCode.borders.map((e) => (
                   <NavLink
@@ -145,7 +148,7 @@ export default function CountryDetails(props) {
                     </Button>
                   </NavLink>
                 ))}
-              </Typography>
+              </Typography>)}
             </Grid>
           </Grid>)}
       </Grid>
