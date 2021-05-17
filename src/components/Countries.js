@@ -63,7 +63,7 @@ const Countries = (props) => {
                       <CardContent className={classes.content}>
                         <Typography
                           gutterBottom
-                          variant="h5"
+                          variant="h4"
                           component="h2"
                           className={classes.title}
                         >
