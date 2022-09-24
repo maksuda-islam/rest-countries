@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "@material-ui/core/styles";
 
-const url = 'https://restcountries.eu/rest/v2/all';
+const url = 'https://restcountries.com/v3.1/all';
 
 const useStyles = makeStyles((theme) => ({
   container: {
